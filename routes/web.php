@@ -9,6 +9,8 @@ Route::middleware('guest')->group(function() {
     // ROUTE LOGIN
     Route::get('/', [LoginController::class, 'index'])->name('login');
     Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
+    Route::get('/register', [LoginController::class, 'showRegis'])->name('regis');
+    Route::post('/register', [LoginController::class, 'registration'])->name('auth.regis');
 });
 
 // ROUTE ADMIN

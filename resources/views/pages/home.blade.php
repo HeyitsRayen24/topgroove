@@ -32,15 +32,14 @@
             <!-- TOP RIGHT -->
             <div class="desktop-only position-absolute top-0 end-0 m-4">
 
-                <button
-                    type="button"
-                    class="float-btn d-flex flex-column align-items-center justify-content-center">
+                <a href="{{ route('regis') }}"
+                    class="float-btn d-flex flex-column align-items-center justify-content-center text-decoration-none">
 
                     <i class="ri-user-add-line mb-1"></i>
 
                     <span>REGISTER</span>
 
-                </button>
+                </a>
 
             </div>
 
@@ -110,7 +109,16 @@
                 <div class="d-flex justify-content-between gap-3">
 
                     <!-- INSTAGRAM -->
-                    <button
+
+                    <a href="{{ route('login') }}}"
+                    class="float-btn d-flex flex-column align-items-center justify-content-center text-decoration-none">
+
+                        <i class="ri-instagram-line mb-1"></i>
+
+                        <span>INSTAGRAM</span>
+
+                    </a>
+                    {{-- <button
                         type="button"
                         class="float-btn mobile-float-btn d-flex flex-column align-items-center justify-content-center flex-fill">
 
@@ -118,10 +126,18 @@
 
                         <span>INSTAGRAM</span>
 
-                    </button>
+                    </button> --}}
 
                     <!-- TIKTOK -->
-                    <button
+                    <a href="{{ route('login') }}}"
+                    class="float-btn d-flex flex-column align-items-center justify-content-center text-decoration-none">
+
+                        <i class="ri-tiktok-fill mb-1"></i>
+
+                        <span>TIKTOK</span>
+
+                    </a>
+                    {{-- <button
                         type="button"
                         class="float-btn mobile-float-btn d-flex flex-column align-items-center justify-content-center flex-fill">
 
@@ -129,7 +145,7 @@
 
                         <span>TIKTOK</span>
 
-                    </button>
+                    </button> --}}
 
                 </div>
 

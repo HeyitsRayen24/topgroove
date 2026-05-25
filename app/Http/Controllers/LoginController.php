@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\RegisterRequest;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +41,17 @@ class LoginController extends Controller
                 'password' => 'Email atau Password anda salah!'
             ])->onlyInput('email');
         }
+    }
+    
+    public function showRegis()
+    {
+        return view('pages.regis');
+    }
+
+    public function registration(RegisterRequest $request, UserService $service)
+    {
+        $service->addUser($request->validated());
+        return redirect()->route('login')->with('success', 'User Baru Berhasil Ditambahkan!');
     }
 
     public function logout(Request $request)
