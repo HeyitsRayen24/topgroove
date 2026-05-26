@@ -24,5 +24,7 @@ class UserService
             'password'          => Hash::make($data['password']),
             'role_id'           => 2
         ]);
+
+        
     }
 }

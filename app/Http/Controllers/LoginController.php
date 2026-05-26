@@ -51,7 +51,14 @@ class LoginController extends Controller
     public function registration(RegisterRequest $request, UserService $service)
     {
         $service->addUser($request->validated());
-        return redirect()->route('login')->with('success', 'User Baru Berhasil Ditambahkan!');
+
+        // Swal::success([
+        //     'title' => 'Saved!',
+        //     'text' => 'Anda Berhasil Registrasi',
+        //     'time' => 1500,
+        // ]);
+
+        return redirect()->route('login');
     }
 
     public function logout(Request $request)
