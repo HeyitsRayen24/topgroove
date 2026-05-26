@@ -19,6 +19,6 @@ class UserCheck
         {
             return $next($request);
         }
-        return response()->json('Anda tidak memiliki akses');
+        return redirect()->back()->with('error', 'Anda tidak memiliki akses!');
     }
 }

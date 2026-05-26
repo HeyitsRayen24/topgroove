@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RedirectHelper;
 use App\Http\Requests\User\RegisterRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -11,6 +12,11 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(Auth::check())
+        {
+            return RedirectHelper::redirectByRole(Auth::user())
+            ->with('error', 'Anda sudah login!');
+        }
         return view('pages.home');
     }
 
@@ -19,7 +25,7 @@ class LoginController extends Controller
         // input validation or credentials check
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:8|max:255'
         ],[
             'email.required' => 'Email wajib diisi!',
             'email.email' => 'Format email anda salah!',
@@ -29,12 +35,8 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            if(Auth::user()->role_id == 1)
-            {
-                return redirect()->route('dashboard.admin');
-            }else if(Auth::user()->role_id == 2) {
-                return redirect()->route('dashboard.member');
-            }
+
+            return RedirectHelper::redirectByRole(Auth::user());
         } else {
             return back()->withErrors([
                 'email' => 'Email atau Password anda salah!',
@@ -45,6 +47,11 @@ class LoginController extends Controller
     
     public function showRegis()
     {
+        if(Auth::check())
+        {
+            return RedirectHelper::redirectByRole(Auth::user())
+            ->with('error', 'Anda sudah login!');
+        }
         return view('pages.regis');
     }
 

@@ -71,9 +71,9 @@
 
                         <i class="ri-user-3-line input-icon"></i>
 
-                        <input type="number" name="age" class="form-control custom-input @error('age') is-invalid                                        
+                        <input type="text" name="age" class="form-control custom-input @error('age') is-invalid                                        
                                     @enderror" value="{{ old('age') }}" placeholder="Your Age">
-                        @error('old')
+                        @error('age')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

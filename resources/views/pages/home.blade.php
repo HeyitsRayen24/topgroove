@@ -110,7 +110,7 @@
 
                     <!-- INSTAGRAM -->
 
-                    <a href="{{ route('login') }}}"
+                    <a href="{{ route('login') }}"
                     class="float-btn d-flex flex-column align-items-center justify-content-center text-decoration-none">
 
                         <i class="ri-instagram-line mb-1"></i>
@@ -129,7 +129,7 @@
                     </button> --}}
 
                     <!-- TIKTOK -->
-                    <a href="{{ route('login') }}}"
+                    <a href="{{ route('login') }}"
                     class="float-btn d-flex flex-column align-items-center justify-content-center text-decoration-none">
 
                         <i class="ri-tiktok-fill mb-1"></i>

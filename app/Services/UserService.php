@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,6 +13,8 @@ class UserService
      */
     public function addUser(array $data)
     {
+        $memberRole = Role::where('name', 'Member')->first();
+
         return User::create([
             'name'              => $data['name'],
             'age'               => $data['age'],
@@ -22,7 +25,7 @@ class UserService
             'address'           => $data['address'],
             'email'             => $data['email'],
             'password'          => Hash::make($data['password']),
-            'role_id'           => 2
+            'role_id'           => $memberRole->id
         ]);
 
         
