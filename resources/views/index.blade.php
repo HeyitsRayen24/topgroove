@@ -232,7 +232,7 @@
         </div>
 
     </section>
-
+    @include('sweetalert2::index')
 </body>
 
 </html>
