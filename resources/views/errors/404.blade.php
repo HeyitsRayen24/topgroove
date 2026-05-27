@@ -51,7 +51,7 @@
             </div>
 
             <!-- CODE -->
-            <h1 class="text-7xl md:text-8xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+            <h1 class="text-7xl md:text-8xl font-black mb-4 bg-linear-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
                 404
             </h1>
 

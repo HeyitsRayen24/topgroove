@@ -8,7 +8,7 @@
 
 <a href="{{ route('regis') }}" class="float-btn top-right">
     <i class="ri-user-add-line"></i>
-    REG
+    SIGN IN
 </a>
 
 <a href="#" class="float-btn bottom-left">
@@ -35,7 +35,7 @@
 
         <a href="{{ route('regis') }}">
             <i class="ri-user-add-line"></i>
-            REGISTER
+            SIGN IN
         </a>
 
         <a href="#">
