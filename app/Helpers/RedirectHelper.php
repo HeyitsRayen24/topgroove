@@ -2,9 +2,11 @@
 
 namespace App\Helpers;
 
+use App\Models\User;
+
 class RedirectHelper
 {
-    public static function redirectByRole($user)
+    public static function redirectByRole(User $user)
     {
         return match($user->role->name)
         {

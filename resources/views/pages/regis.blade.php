@@ -125,8 +125,8 @@
 
                         <i class="ri-smartphone-line input-icon"></i>
 
-                        <input type="text" name="phone" class="form-control custom-input @error('phone') is-invalid                                        
-                                    @enderror" value="{{ old('phone') }}" placeholder="Phone Number">
+                        <input type="tel" name="phone" class="form-control custom-input @error('phone') is-invalid                                        
+                                    @enderror" value="{{ old('phone') }}" placeholder="Phone Number: 08xxxxxxx">
                         @error('phone')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -207,7 +207,7 @@
                         <i class="ri-lock-line input-icon"></i>
 
                         <input type="password" name="password" class="form-control custom-input @error('password') is-invalid                                        
-                                    @enderror" value="{{ old('password') }}" placeholder="Password">
+                                    @enderror" placeholder="Password">
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}

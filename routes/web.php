@@ -5,13 +5,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest')->group(function() {
-    // ROUTE LOGIN
-    Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('throttle:5,1');
-    Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
-    Route::get('/register', [LoginController::class, 'showRegis'])->name('regis');
-    Route::post('/register', [LoginController::class, 'registration'])->name('auth.regis');
-});
+// ROUTE LOGIN
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login')->middleware('throttle:5,1');
+Route::get('/register', [LoginController::class, 'showRegis'])->name('regis');
+Route::post('/register', [LoginController::class, 'registration'])->name('auth.regis')->middleware('throttle:5,1');
 
 // ROUTE ADMIN
 Route::middleware(['auth', 'isUser:Admin'])->group(function () {

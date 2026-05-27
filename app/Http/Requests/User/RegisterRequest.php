@@ -24,13 +24,13 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'name' => 'required|regex:/^[\pL\s]+$/u',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|max:8',
+            'password' => 'required|min:8|max:12',
             'age' => 'required|numeric',
-            'place_of_birth' => 'required',
-            'date_of_birth' => 'required|date|date_format:Y-m-d',
-            'phone' => 'required|numeric',
+            'place_of_birth' => 'required|regex:/^[\pL\s]+$/u',
+            'date_of_birth' => 'required|date',
+            'phone' => 'required|digits_between:10,15',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'address' => 'required',
         ];
@@ -41,17 +41,20 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name.required' => 'Nama Wajib Diisi!',
+            'name.regex' => 'Nama Wajib Berupa Karakter A-Z!',
             'email.required' => 'Email Wajib Diisi!',
             'email.email' => 'Format Email Wajib @!',
             'email.unique' => 'Email Sudah Dipakai!',
             'password.required' => 'Password Wajib Diisi!',
-            'password.max' => 'Password max 8 Karakter!',
+            'password.min' => 'Password min 8 Karakter!',
+            'password.max' => 'Password max 12 Karakter!',
             'age.required' => 'Umur Wajib Diisi!',
             'age.numeric' => 'Umur Wajib Berupa Angka!',
             'place_of_birth.required' => 'Tempat Lahir Wajib Diisi!',
+            'place_of_birth.regex' => 'Tempat Lahir Wajib Berupa Karakter A-Z!',
             'date_of_birth.required' => 'Tanggal Lahir Wajib Diisi!',
             'phone.required' => 'No Hp Wajib Diisi!',
-            'phone.numeric' => 'No Hp Wajib Berupa Angka!',
+            'phone.digits_between' => 'No Hp Wajib Berupa Angka: 08xxxxxx!',
             'gender.required' => 'Gender Harap Dipilih!',
             'address.required' => 'Alamat Wajib Diisi!',
         ];

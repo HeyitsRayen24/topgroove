@@ -25,18 +25,19 @@ class LoginController extends Controller
         // input validation or credentials check
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required'
         ],[
             'email.required' => 'Email wajib diisi!',
             'email.email' => 'Format email anda salah!',
-            'password.required' => 'Password wajib diisi!'
+            'password.required' => 'Password wajib diisi!',
+            'password.min' => 'Password min 8 karakter!'
         ]);
 
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
 
-            return RedirectHelper::redirectByRole(Auth::user());
+            return RedirectHelper::redirectByRole(Auth::user())->with('success', 'Login Berhasil');
         } else {
             return back()->withErrors([
                 'email' => 'Email atau Password anda salah!',
